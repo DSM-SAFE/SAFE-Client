@@ -1,8 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native';
+import RootStack from './src/navigator';
 
 const App = () => {
-  return <Text> 앱 화면입니다.</Text>;
+  return <RootStack />;
 };
 
 export default App;
