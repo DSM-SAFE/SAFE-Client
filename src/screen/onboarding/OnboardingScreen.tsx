@@ -1,0 +1,63 @@
+import React from 'react';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import SFillButton from '../../components/button/SFillButton';
+import OnboardingScreenProps from '../../navigator/props/onboarding';
+import {RootScreens} from '../../navigator/stack';
+
+const OnboardingScreen = (props: OnboardingScreenProps) => {
+  const {navigation} = props;
+  return (
+    <SafeAreaView style={styles.safe_area}>
+      <View style={styles.view}>
+        <Text style={styles.logo}>SAFE</Text>
+        <View style={styles.spacer} />
+        <SFillButton
+          title="로그인"
+          backgroundColor="#8A8A8A"
+          tintColor="#EEE"
+          onPress={() => {
+            navigation.navigate(RootScreens.Login);
+          }}
+        />
+        <SFillButton
+          title="회원가입"
+          backgroundColor="#D9D9D9"
+          tintColor="#6C6B6B"
+          onPress={() => {
+            navigation.navigate(RootScreens.SignUp);
+          }}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  safe_area: {
+    flex: 1,
+    backgroundColor: '#EEE',
+  },
+  view: {
+    marginHorizontal: 16,
+  },
+  spacer: {
+    flex: 1,
+    marginBottom: '100%',
+  },
+  logo: {
+    textAlign: 'center',
+    color: '#FFF',
+    fontSize: 100,
+    fontWeight: 'bold',
+    shadowColor: 'black',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.82,
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    marginTop: 117,
+  },
+});
+
+export default OnboardingScreen;
