@@ -1,11 +1,20 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import SFillButton from '../../components/button/SFillButton';
-import OnboardingScreenProps from '../../navigator/props/onboarding';
-import {RootScreens} from '../../navigator/stack';
+import {RootScreens, RootStackList} from '../../navigator';
+import {StackNavigationProp} from '@react-navigation/stack';
 
-const OnboardingScreen = (props: OnboardingScreenProps) => {
+type NavigationProps = StackNavigationProp<
+  RootStackList,
+  RootScreens.Onboarding
+>;
+interface Props {
+  navigation: NavigationProps;
+}
+
+const OnboardingScreen = (props: Props) => {
   const {navigation} = props;
+
   return (
     <SafeAreaView style={styles.safe_area}>
       <View style={styles.view}>
