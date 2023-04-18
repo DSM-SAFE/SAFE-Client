@@ -37,7 +37,7 @@ const LoginScreen = (props: Props) => {
         backgroundColor="#8A8A8A"
         tintColor="#EEE"
         onPress={() => {
-          navigation.push(RootScreens.Onboarding);
+          navigation.push(RootScreens.Main);
         }}
       />
     </SafeAreaView>

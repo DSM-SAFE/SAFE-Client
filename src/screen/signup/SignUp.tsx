@@ -58,7 +58,7 @@ const SignUpScreen = (props: Props) => {
         backgroundColor="#D9D9D9"
         tintColor="#6C6B6B"
         onPress={() => {
-          navigation.push(RootScreens.Onboarding);
+          navigation.push(RootScreens.Main);
         }}
       />
     </SafeAreaView>
