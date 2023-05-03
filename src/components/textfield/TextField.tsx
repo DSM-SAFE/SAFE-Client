@@ -11,7 +11,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
 }
 
-const STextField = (props: Props) => {
+const TextField = (props: Props) => {
   return (
     <View style={[styles.view, props.style]}>
       <Text style={styles.title}>{props.title}</Text>
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default STextField;
+export default TextField;

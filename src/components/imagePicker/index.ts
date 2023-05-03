@@ -1,1 +1,1 @@
-export {default as SImagePicker} from './SImagePicker';
+export {default as ImagePicker} from './ImagePicker';

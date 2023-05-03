@@ -9,7 +9,7 @@ interface Props {
   onPress: () => void;
 }
 
-const SFillButton = (props: Props) => {
+const FillButton = (props: Props) => {
   return (
     <TouchableOpacity
       style={[styles.button, {backgroundColor: props.backgroundColor}]}
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SFillButton;
+export default FillButton;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import SFillButton from '../../components/button/SFillButton';
+import FillButton from '../../components/button/FillButton';
 import {RootScreens, RootStackList} from '../../navigator';
 import {StackNavigationProp} from '@react-navigation/stack';
 
@@ -20,7 +20,7 @@ const OnboardingScreen = (props: Props) => {
       <View style={styles.view}>
         <Text style={styles.logo}>SAFE</Text>
         <View style={styles.spacer} />
-        <SFillButton
+        <FillButton
           title="로그인"
           backgroundColor="#8A8A8A"
           tintColor="#EEE"
@@ -28,7 +28,7 @@ const OnboardingScreen = (props: Props) => {
             navigation.navigate(RootScreens.Login);
           }}
         />
-        <SFillButton
+        <FillButton
           title="회원가입"
           backgroundColor="#D9D9D9"
           tintColor="#6C6B6B"

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import STextField from '../../components/textfield/STextField';
-import SFillButton from '../../components/button/SFillButton';
+import TextField from '../../components/textfield/TextField';
+import FillButton from '../../components/button/FillButton';
 import {StyleSheet, View} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootScreens, RootStackList} from '../../navigator';
@@ -22,38 +22,38 @@ const SignUpScreen = (props: Props) => {
 
   return (
     <SafeAreaView style={styles.safe_area_view}>
-      <STextField
+      <TextField
         title="아이디"
         text={id}
         placeholder="아이디"
         onChangeText={setId}
       />
-      <STextField
+      <TextField
         title="이름"
         text={name}
         placeholder="이름"
         onChangeText={setName}
       />
-      <STextField
+      <TextField
         title="전화번호"
         text={phoneNumber}
         placeholder="전화번호"
         onChangeText={setPhoneNumber}
       />
-      <STextField
+      <TextField
         title="비밀번호"
         text={password}
         placeholder="비밀번호"
         onChangeText={setPassword}
       />
-      <STextField
+      <TextField
         title="비밀번호 확인"
         text={checkPassword}
         placeholder="비밀번호 확인"
         onChangeText={setCheckPassword}
       />
       <View style={styles.spacer} />
-      <SFillButton
+      <FillButton
         title="회원가입"
         backgroundColor="#D9D9D9"
         tintColor="#6C6B6B"

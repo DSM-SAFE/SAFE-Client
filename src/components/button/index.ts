@@ -1,2 +1,2 @@
-export {default as SFillButton} from './SFillButton';
-export {default as SCircleButton} from './SCircleButton';
+export {default as FillButton} from './FillButton';
+export {default as CircleButton} from './CircleButton';

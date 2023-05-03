@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import STextField from '../../components/textfield/STextField';
 import {Image, StyleSheet} from 'react-native';
+import {TextField} from '../../components/textfield';
 
 const ProfileScreen = () => {
   const [name, setName] = useState('김기영');
@@ -11,7 +11,7 @@ const ProfileScreen = () => {
   return (
     <SafeAreaView style={styles.safe_area_view}>
       <Image style={styles.image} source={{uri: ''}} />
-      <STextField
+      <TextField
         disabled={true}
         title="이름"
         text={name}
@@ -19,7 +19,7 @@ const ProfileScreen = () => {
         onChangeText={setName}
         style={styles.textField}
       />
-      <STextField
+      <TextField
         disabled={true}
         title="아이디"
         text={id}
@@ -27,7 +27,7 @@ const ProfileScreen = () => {
         onChangeText={setId}
         style={styles.textField}
       />
-      <STextField
+      <TextField
         disabled={true}
         title="전화번호"
         text={phoneNumber}
