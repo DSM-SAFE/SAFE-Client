@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleProp, StyleSheet, Text, View, ViewStyle} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 
 interface Props {
@@ -7,13 +7,16 @@ interface Props {
   text: string;
   placeholder: string;
   onChangeText: (text: string) => void;
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
 }
 
 const STextField = (props: Props) => {
   return (
-    <View style={styles.view}>
+    <View style={[styles.view, props.style]}>
       <Text style={styles.title}>{props.title}</Text>
       <TextInput
+        editable={!props.disabled ?? true}
         style={styles.textfield}
         value={props.text}
         placeholder={props.placeholder}
@@ -26,6 +29,7 @@ const STextField = (props: Props) => {
 const styles = StyleSheet.create({
   view: {
     alignItems: 'flex-start',
+    width: '100%',
   },
   title: {
     fontSize: 10,
@@ -40,8 +44,8 @@ const styles = StyleSheet.create({
     paddingVertical: 19,
     paddingLeft: 17,
     borderRadius: 10,
-    width: '100%',
     marginBottom: 12,
+    width: '100%',
   },
 });
 
