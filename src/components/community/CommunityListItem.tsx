@@ -1,11 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const CommunityListItem = (title: string) => {
+interface Props {
+  title: string;
+  onPress: () => void;
+}
+
+const CommunityListItem = ({title, onPress}: Props) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>;
-    </View>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Text>{title}</Text>
+    </TouchableOpacity>
   );
 };
 
@@ -15,7 +21,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     height: 195,
-    width: '100%',
+    width: '94%',
+    marginTop: 16,
+    paddingTop: 12,
+    paddingLeft: 12,
+    marginHorizontal: '3%',
   },
   title: {
     textAlign: 'left',
