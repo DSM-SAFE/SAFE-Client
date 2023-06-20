@@ -23,7 +23,6 @@ const FillButton = (props: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
     height: 68,
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
