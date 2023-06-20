@@ -1,41 +1,68 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView} from 'react-native-gesture-handler';
 import {CommunityListItem} from '../../components/community';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import {RootScreens, RootStackList} from '../../navigator';
+import {StackNavigationProp} from '@react-navigation/stack';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {getCommunity} from '../../localDB/service/CommunityService';
+import {CommunityModel} from '../../localDB/Model/CommunityModel';
 
-interface Community {
-  title: string;
+interface Props {
+  navigation: StackNavigationProp<RootStackList, RootScreens.Community>;
 }
 
-const CommunityScreen = () => {
-  const [dummy, setDummy] = useState<Community[]>([]);
+const CommunityScreen = ({navigation}: Props) => {
+  const [community, setCommunity] = useState<CommunityModel[]>([]);
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => navigation.navigate(RootScreens.AddCommunity)}>
+          <FontAwesome style={styles.headerRight} name="pencil" size={20} />
+        </TouchableOpacity>
+      ),
+    });
+  });
 
   useEffect(() => {
-    setDummy([
-      {
-        title: '반가워요',
-      },
-      {
-        title: '안녕하세요',
-      },
-      {
-        title: '정말 신기해요!',
-      },
-      {
-        title: '그냥 싶어요!',
-      },
-    ]);
+    const asyncCommunity = async () => {
+      let list = await getCommunity();
+      console.log(`community ${list}`);
+      setCommunity(list);
+    };
+    asyncCommunity();
   }, []);
 
   return (
-    <ScrollView>
-      {dummy.map((item: Community) => {
-        const {title} = item;
+    <ScrollView style={styles.scrollView}>
+      {community.map((item: CommunityModel) => {
         return (
-          <CommunityListItem title={title} onPress={() => console.log(title)} />
+          <CommunityListItem
+            image={item.imageUri}
+            title={item.title}
+            content={item.content}
+            onPress={() =>
+              navigation.navigate(RootScreens.DetailCommunity, {
+                title: item.title,
+                image: item.imageUri,
+                content: item.content,
+              })
+            }
+          />
         );
       })}
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  scrollView: {
+    marginHorizontal: 16,
+  },
+  headerRight: {
+    paddingRight: 20,
+  },
+});
 
 export default CommunityScreen;
