@@ -10,7 +10,12 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={styles.safe_area_view}>
-      <Image style={styles.image} source={{uri: ''}} />
+      <Image
+        style={styles.image}
+        source={{
+          uri: 'https://www.chemicalnews.co.kr/news/photo/202106/3636_10174_4958.jpg',
+        }}
+      />
       <TextField
         disabled={true}
         title="이름"
